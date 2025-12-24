@@ -427,21 +427,25 @@ export const EnergyIcon: React.FC<{ type: string; size?: number, className?: str
   }
 
   // Realistic version for Card (Orb)
-  const isDownloading = document.documentElement.hasAttribute('data-downloading') || window.location.pathname.includes('/download');
-  
   return (
     <div 
       className={`rounded-full flex items-center justify-center font-bold text-white shadow-sm border border-black/20 ${className}`}
       style={{ 
         width: size, 
         height: size, 
-        background: isDownloading ? color : `radial-gradient(circle at 30% 30%, ${color}, ${type === ElementType.Darkness ? 'black' : '#000'})`,
         boxShadow: '1px 1px 2px rgba(0,0,0,0.5), inset 1px 1px 1px rgba(255,255,255,0.4)'
       }}
       title={type}
     >
-      <svg viewBox="0 0 24 24" style={{ width: size * 0.65, height: size * 0.65, fill: 'white', filter: 'drop-shadow(0px 1px 1px rgba(0,0,0,0.5))' }}>
-          <path d={path} />
+      <svg viewBox="0 0 24 24" style={{ width: size, height: size, filter: 'drop-shadow(0px 1px 1px rgba(0,0,0,0.5))' }}>
+        <defs>
+          <radialGradient id={`energy-gradient-${type}`} cx="30%" cy="30%" r="100%">
+            <stop offset="0%" stopColor={color} stopOpacity="1" />
+            <stop offset="100%" stopColor={type === ElementType.Darkness ? 'black' : '#000'} stopOpacity="1" />
+          </radialGradient>
+        </defs>
+        <circle cx="12" cy="12" r="12" fill={`url(#energy-gradient-${type})`} />
+        <path d={path} fill="white" />
       </svg>
     </div>
   );

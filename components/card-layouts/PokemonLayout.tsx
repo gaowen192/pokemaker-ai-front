@@ -131,12 +131,12 @@ export const PokemonLayout: React.FC<{ data: CardData }> = ({ data }) => {
                 <div className="flex-grow"></div>
 
                 <div className="relative z-10 mx-2 mb-1">
-                    <div className="bg-gradient-to-r from-yellow-200 via-yellow-100 to-yellow-200 py-1 px-4 rounded-sm shadow-md flex justify-between items-center transform -skew-x-12 mx-4 border-y-2 border-yellow-400/50">
-                        <span className="transform skew-x-12 text-[9px] font-bold text-gray-700">{data.dexSpecies}</span>
-                        <span className="transform skew-x-12 text-[9px] font-bold text-gray-700">HT: {data.dexHeight}</span>
-                        <span className="transform skew-x-12 text-[9px] font-bold text-gray-700">WT: {data.dexWeight}</span>
+                        <div className="bg-gradient-to-r from-yellow-200 via-yellow-100 to-yellow-200 py-1 px-4 rounded-sm shadow-md flex justify-between items-center transform -skew-x-12 mx-4 border-y-2 border-yellow-400/50">
+                            <span className="transform skew-x-12 text-[9px] font-bold text-gray-700">{data.dexSpecies}</span>
+                            <span className="transform skew-x-12 text-[9px] font-bold text-gray-700">HT: {data.dexHeight}</span>
+                            <span className="transform skew-x-12 text-[9px] font-bold text-gray-700">WT: {data.dexWeight}</span>
+                        </div>
                     </div>
-                </div>
 
                 <div className={`relative z-10 mx-3 mb-3 rounded-lg shadow-lg border border-white/20 backdrop-blur-sm p-3 ${contentPaddingBottom} ${theme.boxGradient}`}>
                     

@@ -35,6 +35,7 @@ export const FormBasics: React.FC<FormBasicsProps> = ({ data, onChange, handleSu
                     onChange={(v: any) => onChange('name', v)} 
                     placeholder="e.g. Charizard"
                     className="sm:col-span-3"
+                    maxLength={50}
                 />
                 {data.supertype === Supertype.Pokemon && (
                     <InputField 

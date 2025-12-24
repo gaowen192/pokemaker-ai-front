@@ -40,6 +40,7 @@ export const FormStats: React.FC<FormStatsProps> = ({ data, onChange }) => {
                         type="number"
                         value={data.retreatCost} 
                         onChange={(v: any) => onChange('retreatCost', parseInt(v))} 
+                        max="5"
                     />
                     </div>
             ) : (

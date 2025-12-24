@@ -51,6 +51,7 @@ export const FormDetail: React.FC<FormDetailProps> = ({ data, onChange, user, on
                             label={t('label.illustrator')}
                             value={data.illustrator} 
                             onChange={(v: any) => onChange('illustrator', v)} 
+                            maxLength={50}
                         />
                             <SelectField 
                             label={t('label.rarity')} 
@@ -66,12 +67,14 @@ export const FormDetail: React.FC<FormDetailProps> = ({ data, onChange, user, on
                             value={data.setNumber} 
                             onChange={(v: any) => onChange('setNumber', v)} 
                             placeholder="001/165"
+                            maxLength={10}
                         />
                             <InputField 
                             label={t('label.regmark')}
                             value={data.regulationMark} 
                             onChange={(v: any) => onChange('regulationMark', v)} 
                             placeholder="G"
+                            maxLength={2}
                         />
                     </div>
 
@@ -118,18 +121,21 @@ export const FormDetail: React.FC<FormDetailProps> = ({ data, onChange, user, on
                                         value={data.dexSpecies} 
                                         onChange={(v: any) => onChange('dexSpecies', v)} 
                                         placeholder="Mouse Pokémon"
+                                        maxLength={50}
                                     />
                                     <InputField 
                                         label="Height"
                                         value={data.dexHeight} 
                                         onChange={(v: any) => onChange('dexHeight', v)} 
                                         placeholder="1'04"
+                                        maxLength={10}
                                     />
                                     <InputField 
                                         label="Weight"
                                         value={data.dexWeight} 
                                         onChange={(v: any) => onChange('dexWeight', v)} 
                                         placeholder="13.2 lbs."
+                                        maxLength={15}
                                     />
                                 </div>
                                 </div>
@@ -145,6 +151,7 @@ export const FormDetail: React.FC<FormDetailProps> = ({ data, onChange, user, on
                                     value={data.pokedexEntry}
                                     onChange={(val: any) => onChange('pokedexEntry', val)}
                                     height="h-24"
+                                    maxLength={200}
                                 />
                             </div>
                         </>

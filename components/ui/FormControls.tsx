@@ -2,7 +2,7 @@
 import React from 'react';
 
 // --- Input Field ---
-export const InputField = React.memo(({ label, value, onChange, type = "text", placeholder = "", className="" }: any) => (
+export const InputField = React.memo(({ label, value, onChange, type = "text", placeholder = "", className="", maxLength }: any) => (
     <div className={className}>
         <label className="block text-[10px] font-bold text-gray-500 uppercase mb-1.5">{label}</label>
         <div className="relative group">
@@ -11,9 +11,15 @@ export const InputField = React.memo(({ label, value, onChange, type = "text", p
                 value={value} 
                 onChange={e => onChange(e.target.value)} 
                 placeholder={placeholder}
+                maxLength={maxLength}
                 className="w-full bg-[#050608] border border-gray-800 rounded-lg p-3 text-base sm:text-sm text-white focus:border-blue-500 focus:ring-1 focus:ring-blue-500 outline-none transition-all shadow-inner placeholder-gray-700 focus:shadow-[0_0_10px_rgba(59,130,246,0.2)]" 
             />
         </div>
+        {maxLength && (
+            <div className="text-right text-xs text-gray-500 mt-1">
+                {value?.length || 0}/{maxLength}
+            </div>
+        )}
     </div>
 ));
 
@@ -41,15 +47,21 @@ export const SelectField = React.memo(({ label, value, onChange, options }: any)
 ));
 
 // --- Text Area ---
-export const TextAreaField = React.memo(({ label, value, onChange, placeholder = "", className = "", height = "h-24" }: any) => (
+export const TextAreaField = React.memo(({ label, value, onChange, placeholder = "", className = "", height = "h-24", maxLength }: any) => (
     <div className={className}>
         {label && <label className="block text-[10px] font-bold text-gray-500 uppercase mb-1.5">{label}</label>}
         <textarea
             value={value}
             onChange={e => onChange(e.target.value)}
             placeholder={placeholder}
+            maxLength={maxLength}
             className={`w-full bg-[#050608] border border-gray-800 rounded-lg p-3 text-sm text-white focus:border-blue-500 outline-none resize-none focus:shadow-[0_0_10px_rgba(59,130,246,0.2)] ${height}`}
         />
+        {maxLength && (
+            <div className="text-right text-xs text-gray-500 mt-1">
+                {value?.length || 0}/{maxLength}
+            </div>
+        )}
     </div>
 ));
 

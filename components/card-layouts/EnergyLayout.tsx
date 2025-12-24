@@ -10,7 +10,15 @@ export const EnergyLayout: React.FC<{ data: CardData }> = ({ data }) => {
     return (
         <div className="absolute inset-0 flex flex-col" style={{ backgroundColor: getEnergyColor(data.type) }}>
             {/* Background Gradient Overlay */}
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_transparent_0%,_rgba(0,0,0,0.15)_100%)]"></div>
+            <svg className="absolute inset-0 w-full h-full">
+                <defs>
+                    <radialGradient id="energy-background-gradient" cx="50%" cy="50%" r="50%">
+                        <stop offset="0%" stopColor="rgba(0,0,0,0)" stopOpacity="1" />
+                        <stop offset="100%" stopColor="rgba(0,0,0,0.15)" stopOpacity="1" />
+                    </radialGradient>
+                </defs>
+                <rect width="100%" height="100%" fill="url(#energy-background-gradient)" />
+            </svg>
 
             {/* Top Metal Bar */}
             <div className="relative z-20 h-[13%] bg-gradient-to-b from-[#d1d5db] via-[#f3f4f6] to-[#9ca3af] flex items-center justify-between px-5 border-b-2 border-white/50 shadow-md">

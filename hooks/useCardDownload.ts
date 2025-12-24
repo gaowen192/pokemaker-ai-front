@@ -154,6 +154,25 @@ export const useCardDownload = (
             // Hide Holo Overlay on download to prevent artifacts
             const holoOverlays = clone.querySelectorAll('.card-holo-overlay');
             holoOverlays.forEach((el: any) => el.style.display = 'none');
+            
+            // Fix text skew issue in PokemonLayout
+            const skewContainers = clone.querySelectorAll('[class*="-skew-x-12"]');
+            skewContainers.forEach((container: any) => {
+                // Remove parent skew transform
+                container.style.transform = '';
+                // Ensure proper flex alignment
+                container.style.alignItems = 'center';
+            });
+            
+            // Remove all child skew transforms that were compensating for parent skew
+            const skewSpans = clone.querySelectorAll('[class*="skew-x-12"]');
+            skewSpans.forEach((span: any) => {
+                span.style.transform = '';
+                // Add explicit line-height and vertical alignment to fix positioning
+                span.style.lineHeight = '1';
+                span.style.verticalAlign = 'middle';
+                span.style.display = 'inline-block';
+            });
     
             document.body.appendChild(clone);
     

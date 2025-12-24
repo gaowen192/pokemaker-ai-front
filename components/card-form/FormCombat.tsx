@@ -150,6 +150,7 @@ export const FormCombat: React.FC<FormCombatProps> = ({ data, onChange, user, on
                                 label="Name"
                                 value={attack.name} 
                                 onChange={(v: any) => updateAttack(idx, 'name', v)} 
+                                maxLength={30}
                             />
                             
                             <div>
@@ -176,12 +177,14 @@ export const FormCombat: React.FC<FormCombatProps> = ({ data, onChange, user, on
                                     value={attack.damage} 
                                     onChange={(v: any) => updateAttack(idx, 'damage', v)} 
                                     placeholder="e.g. 50"
+                                    maxLength={10}
                                 />
                                 <TextAreaField
                                     label="Effect"
                                     value={attack.description}
                                     onChange={(val: any) => updateAttack(idx, 'description', val)}
                                     height="h-16"
+                                    maxLength={150}
                                 />
                             </div>
                         </div>
@@ -202,6 +205,7 @@ export const FormCombat: React.FC<FormCombatProps> = ({ data, onChange, user, on
                         onChange={(val: any) => onChange('rules', [val])}
                         height="h-48"
                         placeholder="Describe the card's effect..."
+                        maxLength={200}
                     />
                 </div>
             )}

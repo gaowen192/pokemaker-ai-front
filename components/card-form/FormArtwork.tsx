@@ -202,6 +202,7 @@ export const FormArtwork: React.FC<FormArtworkProps> = ({
                             value={aiPrompt}
                             onChange={setAiPrompt}
                             className=""
+                            maxLength={300}
                         />
                         <div className="mt-3">
                             <p className="text-[10px] font-bold text-gray-500 uppercase mb-2">{t('label.quickprompts')}</p>
@@ -279,6 +280,7 @@ export const FormArtwork: React.FC<FormArtworkProps> = ({
                                 onChange={setAiPrompt}
                                 placeholder="Optional: Add details (e.g. 'Make it fiery', 'Anime style')"
                                 height="h-16"
+                                maxLength={200}
                             />
                             <button 
                                 onClick={handleRedrawArt}
@@ -348,6 +350,8 @@ export const FormArtwork: React.FC<FormArtworkProps> = ({
                                     value={data.xOffset}
                                     onChange={(e) => onChange('xOffset', parseInt(e.target.value))}
                                     className="w-full bg-transparent p-2 text-xs text-white outline-none" 
+                                    min="-50"
+                                    max="50"
                                     />
                             </div>
                         </div>
@@ -361,6 +365,8 @@ export const FormArtwork: React.FC<FormArtworkProps> = ({
                                     value={data.yOffset}
                                     onChange={(e) => onChange('yOffset', parseInt(e.target.value))}
                                     className="w-full bg-transparent p-2 text-xs text-white outline-none" 
+                                    min="-50"
+                                    max="50"
                                     />
                             </div>
                         </div>
